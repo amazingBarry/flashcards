@@ -1,0 +1,32 @@
+.choiceButton {
+    background: blue;
+    color: white;
+    margin: 2px auto;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question {
+    margin: 2px auto;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.selectChoice {
+    background-color: blueviolet !important;
+}
+
+.submit {
+    color: white;
+    margin: 2px auto;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+}
