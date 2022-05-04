@@ -10,7 +10,7 @@
 
 .question {
     margin: 2px auto;
-    height: 20vh;
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,9 +24,13 @@
 .submit {
     color: white;
     margin: 2px auto;
-    height: 20vh;
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: green;
+}
+
+.score {
+    position: absolute;
 }

@@ -3,7 +3,7 @@ import CardBoard from './CardBoard';
 import { judoQuestions } from './questions'
 import { useState } from 'react'
 import { getRandomIntFunc } from './helpers'
-
+import './styles.css'
 
 function App() {
 
@@ -15,7 +15,6 @@ function App() {
   const [counter, setCounter] = useState(0)
 
   const onSubmit = (answer) => {
-    console.log(answer)
     setCounter(counter + 1)
     if(answer.question == judoQuestions[current].question) {
       setCorrectCounter(correctCounter+1)
@@ -27,6 +26,7 @@ function App() {
     setWrong1(rand([current]))
     setWrong2(rand([current, wrong2]))
   }
+
 
   return (
     <div className="App">
