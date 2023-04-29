@@ -1,4 +1,4 @@
-export const judoQuestions = [
+export const throws = [
     { question: 'Deashi Harai (or barai) ', answer: 'Advanced Foot Sweep' },
     { question: 'Hiza Guruma ', answer: 'Knee Wheel' },
     { question: 'Sasae Tsurikomi Ashi ', answer: 'Supporting Lift-Pull Foot' },
@@ -39,4 +39,77 @@ export const judoQuestions = [
     { question: 'Ura Nage ', answer: 'Back Throw' },
     { question: 'Sumi Otoshi ', answer: 'Corner Drop' },
     { question: 'Yoko Gake ', answer: 'Side Hook' },
+]
+
+export const chokes = [
+      {
+        "question": "Nami Juji Jime",
+        "answer": "Normal Cross Choke"
+      },
+      {
+        "question": "Kata Juji Jime",
+        "answer": "Half Cross Choke"
+      },
+      {
+        "question": "Gyaku Juji Jime",
+        "answer": "Reverse Cross Choke"
+      },
+      {
+        "question": "Hadaka Jime",
+        "answer": "Naked Choke"
+      },
+      {
+        "question": "Okuri Eri Jime",
+        "answer": "Sliding Lapel Choke"
+      },
+      {
+        "question": "Kata Ha Jime",
+        "answer": "Single Wing Choke"
+      }
+    ]
+    
+export const pins = [
+    {
+    "question": "Kesa Gatame",
+    "answer": "Scarf Hold"
+    },
+    {
+    "question": "Kata Gatame",
+    "answer": "Shoulder Hold"
+    },
+    {
+    "question": "Tate Shiho Gatame",
+    "answer": "Horizontal Four Quarter Hold"
+    },
+    {
+    "question": "Yoko Shiho Gatame",
+    "answer": "Side Hold"
+    },
+    {
+    "question": "Kami Shiho Gatame",
+    "answer": "Upper Four Corner Hold"
+    },
+    {
+    "question": "Kuzure Kami Shiho Gatame",
+    "answer": "Broken Upper Four Corner Hold"
+    }
+]
+
+export const locks = [
+    {
+    "question": "Ude Garami",
+    "answer": "Bent Arm Lock"
+    },
+    {
+    "question": "Juji Gatame",
+    "answer": "Cross Arm Lock"
+    },
+    {
+    "question": "Ude Gatame",
+    "answer": "Normal Arm Lock"
+    },
+    {
+    "question": "Hiza Gatame",
+    "answer": "Knee Arm Lock"
+    }
 ]
