@@ -4,8 +4,7 @@ import { throws as judoQuestions } from './questions'
 import { useState } from 'react'
 import { getRandomIntFunc } from './helpers'
 import './styles.css'
-import { AnswerModal } from './Components/AnswerModal';
-import { Button, Modal } from 'react-bootstrap'
+import AnswerModal from './Components/AnswerModal';
 
 function App() {
 
@@ -19,15 +18,16 @@ function App() {
   const [settings, setSettings] = useState(localStorage.getItem('settings'))
   const [answer, setAnswer] = useState(null)
 
-  const onSubmit = (answer) => {
+  const onSubmit = (ans) => {
     setCounter(counter + 1)
-    setAnswer(answer)
-    if(answer.question == judoQuestions[current].question) {
+    setAnswer(ans)
+    if(ans.question == judoQuestions[current].question) {
       setCorrectCounter(correctCounter+1)
-      //alert('Correct')
-    } else {
-      //alert('Wrong - Correct answer:' + judoQuestions[current].answer)
     }
+  }
+
+  const finishAnswer = () => {
+    setAnswer(null)
     setCurrent(rand())
     setWrong1(rand([current]))
     setWrong2(rand([current, wrong2]))
@@ -38,6 +38,7 @@ function App() {
     setSettings(newSettings)
   }
   
+  console.log('geor', answer)
   return (
     <div className="App">
       { openSettings && <div className='settings'>
@@ -48,8 +49,9 @@ function App() {
         <span onClick={() => setOpenSettings(true)}>Settings</span>
       </div>
       <AnswerModal 
-        show={!!answer} 
-        handleClose={() => setAnswer(null)} 
+        answer={answer} 
+        correctAnswer={judoQuestions[current]}
+        handleClose={finishAnswer} 
       />
       <CardBoard 
         question={judoQuestions[current]} 

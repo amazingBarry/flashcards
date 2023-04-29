@@ -1,12 +1,23 @@
 import { Button, Modal } from 'react-bootstrap'
 
-export const AnswerModal = ({show, handleClose}) => {
+const AnswerModal = ({answer, correctAnswer, handleClose}) => {
 
-    return (<Modal show={show}>
-        <Modal.Header closeButton>Answer</Modal.Header>
-        <Modal.Body>This is just a test</Modal.Body>
+    return (<Modal show={!!answer}>
+        <Modal.Header closeButton>
+            <h1>
+                { answer && answer.answer === correctAnswer.answer ? "Correct" : "Incorrect"}
+            </h1>
+        </Modal.Header>
+        <Modal.Body><a target={'_blank'}
+                href={`https://www.youtube.com/results?search_query=${correctAnswer.question}`}>
+                    {correctAnswer.question}
+                </a>
+                is {correctAnswer.answer}
+            </Modal.Body>
         <Modal.Footer>
             <Button onClick={handleClose}>OK</Button>
         </Modal.Footer>
     </Modal>)
 }
+
+export default AnswerModal
