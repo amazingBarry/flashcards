@@ -113,3 +113,7 @@ export const locks = [
     "answer": "Knee Arm Lock"
     }
 ]
+
+export const questions = {
+    locks, throws, pins, chokes
+}

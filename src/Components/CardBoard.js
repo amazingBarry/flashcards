@@ -1,6 +1,6 @@
-import './styles.css'
+import '../styles.css'
 import { useEffect, useState } from 'react'
-import { shuffle } from './helpers'
+import { shuffle } from '../helpers'
 
 const CardBoard = (props) => {
 

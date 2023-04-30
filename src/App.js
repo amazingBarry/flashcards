@@ -1,66 +1,57 @@
-import './App.css';
-import CardBoard from './CardBoard';
-import { throws as judoQuestions } from './questions'
-import { useState } from 'react'
-import { getRandomIntFunc } from './helpers'
-import './styles.css'
-import AnswerModal from './Components/AnswerModal';
+import Quiz from './Components/Quiz';
+import { questions } from './questions'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import React, {useState} from 'react'
 
 function App() {
+  // const [settings, setSettings] = useState(localStorage.getItem('settings'))
 
-  const rand = getRandomIntFunc(judoQuestions.length)
-  const [current, setCurrent] = useState(rand())
-  const [wrong1, setWrong1] = useState(rand([current]))
-  const [wrong2, setWrong2] = useState(rand([current, wrong1]))
-  const [correctCounter, setCorrectCounter] = useState(0)
-  const [counter, setCounter] = useState(0)
-  const [openSettings, setOpenSettings] = useState(false)
-  const [settings, setSettings] = useState(localStorage.getItem('settings'))
-  const [answer, setAnswer] = useState(null)
-
-  const onSubmit = (ans) => {
-    setCounter(counter + 1)
-    setAnswer(ans)
-    if(ans.question == judoQuestions[current].question) {
-      setCorrectCounter(correctCounter+1)
+  // const saveSettings = (newSettings) => {
+  //   localStorage.setItem('settings',newSettings)
+  //   setSettings(newSettings)
+  // }
+  const [questionArray, setQuestionArray] = useState([])
+  const [checkedBoxes, setCheckedBoxes] = useState([])
+  
+  const onCheckboxChange = (e) => {
+    const checkboxName = e.target.name
+    if (e.target.checked) {
+      setCheckedBoxes([...checkedBoxes, checkboxName])
+    } else {
+      setCheckedBoxes(checkedBoxes.filter(name => name !== checkboxName))
     }
   }
 
-  const finishAnswer = () => {
-    setAnswer(null)
-    setCurrent(rand())
-    setWrong1(rand([current]))
-    setWrong2(rand([current, wrong2]))
+  const startQuiz = () => {
+    if(checkedBoxes.length === 0) {
+      alert('Please choose at least one question set')
+      return
+    }
+
+    // set the questionArray to a concat of all the checked boxes questions
+    setQuestionArray([].concat(...checkedBoxes.map(c => questions[c])))
   }
 
-  const saveSettings = (newSettings) => {
-    localStorage.setItem('settings',newSettings)
-    setSettings(newSettings)
-  }
-  
-  console.log('geor', answer)
   return (
-    <div className="App">
-      { openSettings && <div className='settings'>
-        <button onClick={() => setOpenSettings(false)}>Close Settings</button>
-      </div> }
-      <div className=''>
-        Score: {correctCounter}/{counter} 
-        <span onClick={() => setOpenSettings(true)}>Settings</span>
-      </div>
-      <AnswerModal 
-        answer={answer} 
-        correctAnswer={judoQuestions[current]}
-        handleClose={finishAnswer} 
-      />
-      <CardBoard 
-        question={judoQuestions[current]} 
-        wrong1={judoQuestions[wrong1]}
-        wrong2={judoQuestions[wrong2]}
-        onSubmit={onSubmit}
-      />
+    <div>
+      {questionArray.length === 0 ? <>
+        {Object.keys(questions).map((set, index) => (
+          <Form.Check
+            label={set}
+            name={set}
+            onChange={onCheckboxChange}
+            checked={checkedBoxes.includes(set)}
+            key={index}
+          />
+        ))}
+        <Button onClick={startQuiz}>
+          Begin
+        </Button>
+        </> : <Quiz questions={questionArray} />}
     </div>
-  );
+  )
+  
 }
 
 
