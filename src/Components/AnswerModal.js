@@ -12,7 +12,7 @@ const AnswerModal = ({answer, correctAnswer, handleClose}) => {
                 href={`https://www.youtube.com/results?search_query=${correctAnswer.question}`}>
                     {correctAnswer.question}
                 </a>
-                is {correctAnswer.answer}
+                &nbsp;is {correctAnswer.answer}
             </Modal.Body>
         <Modal.Footer>
             <Button onClick={handleClose}>OK</Button>

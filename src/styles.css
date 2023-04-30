@@ -34,3 +34,15 @@
 .score {
     position: absolute;
 }
+
+.startup {
+    text-align: center;
+}
+
+.startForm {
+    margin: 5px;
+}
+
+.thank {
+    padding-top: 50px;
+}
