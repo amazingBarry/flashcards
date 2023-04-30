@@ -6,7 +6,6 @@ const CardBoard = (props) => {
 
     const [selected, setSelected] = useState(null)
     const { question, wrong1, wrong2, onSubmit} = props
-    const [shuffled, setShuffled] = useState(false)
     const [questionArray, setQuestionArray] = useState([question, wrong1, wrong2])
 
     useEffect(() => {

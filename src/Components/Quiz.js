@@ -24,9 +24,11 @@ const Quiz = ({ questions }) => {
   
     const finishAnswer = () => {
       setAnswer(null)
-      setCurrent(rand())
-      setWrong1(rand([current]))
-      setWrong2(rand([current, wrong2]))
+      const localCurrent = rand()
+      setCurrent(localCurrent)
+      const localWrong = rand([localCurrent])
+      setWrong1(rand([localWrong]))
+      setWrong2(rand([localCurrent, localWrong]))
     }
   
     return (

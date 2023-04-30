@@ -1,6 +1,6 @@
 export const getRandomIntFunc = (max) => (notThis = []) => {
     let retVal = getRand(max)
-    while (notThis.find((a) => a == retVal)) {
+    while (notThis.find((a) => a === retVal)) {
       retVal = getRand(max)
     }
     return retVal
