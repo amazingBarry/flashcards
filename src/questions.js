@@ -114,6 +114,94 @@ export const locks = [
     }
 ]
 
+const YellowBelt = [
+    {
+      "question": "Ritsu Rei",
+      "answer": "Standing Bow"
+    },
+    {
+      "question": "Za Rei",
+      "answer": "Kneeling Bow"
+    },
+    {
+      "question": "Ukemi Waza",
+      "answer": "Break Falling Technique"
+    },
+    {
+      "question": "Chugari (Korean) or Zempo Kaiten Ukemi (Japanese)",
+      "answer": "Judo Tumbling"
+    },
+    {
+      "question": "Shisen Tai",
+      "answer": "Natural Posture"
+    },
+    {
+      "question": "Jigo Tai",
+      "answer": "Defensive Posture"
+    },
+    {
+      "question": "Tai Sabaki",
+      "answer": "Body Movement"
+    },
+    {
+      "question": "Tsugi Ashi",
+      "answer": "Foot Work"
+    },
+    {
+      "question": "Kuzushi Waza",
+      "answer": "Off Balancing Technique"
+    },
+    {
+      "question": "Happo no Kuzushi",
+      "answer": "Eight forms of unbalancing"
+    },
+    {
+      "question": "Ippon Seoi Naga",
+      "answer": "One Arm Shoulder Throw"
+    },
+    {
+      "question": "O-Goshi",
+      "answer": "Major Hip Throw"
+    },
+    {
+      "question": "Tai Otoshi",
+      "answer": "Body Drop Throw"
+    },
+    {
+      "question": "O-uchi Gari",
+      "answer": "Major Inner Reaping Throw"
+    },
+    {
+      "question": "O-soto Gari",
+      "answer": "Major Outer Reaping Throw"
+    },
+    {
+      "question": "Kesa Gatame",
+      "answer": "Scarf Lock"
+    },
+    {
+      "question": "Kata Gatame",
+      "answer": "Shoulder Lock"
+    },
+    {
+      "question": "Kami Shiho Gatame",
+      "answer": "Upper Quarter Lock"
+    },
+    {
+      "question": "Yoko Shiho Gatame",
+      "answer": "Side Quarter Lock"
+    },
+    {
+      "question": "Tate Shiho Gatame",
+      "answer": "Vertical Quarter Lock"
+    },
+    {
+      "question": "Tsuri Komi Jime",
+      "answer": "Push-Pull Strangle"
+    }
+  ]
+
+
 export const questions = {
-    locks, throws, pins, chokes
+    locks, throws, pins, chokes, "Yellow Belt": YellowBelt
 }
