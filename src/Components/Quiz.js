@@ -1,15 +1,15 @@
 import '../App.css';
 import CardBoard from './CardBoard';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getRandomIntFunc } from '../helpers'
 import '../styles.css'
 import AnswerModal from './AnswerModal';
 
 const Quiz = ({ questions }) => {
     const rand = getRandomIntFunc(questions.length)
-    const [current, setCurrent] = useState(rand())
-    const [wrong1, setWrong1] = useState(rand([current]))
-    const [wrong2, setWrong2] = useState(rand([current, wrong1]))
+    const [current, setCurrent] = useState(0)
+    const [wrong1, setWrong1] = useState(0)
+    const [wrong2, setWrong2] = useState(0)
     const [correctCounter, setCorrectCounter] = useState(0)
     const [counter, setCounter] = useState(0)
     const [answer, setAnswer] = useState(null)
@@ -21,14 +21,24 @@ const Quiz = ({ questions }) => {
         setCorrectCounter(correctCounter+1)
       }
     }
-  
-    const finishAnswer = () => {
-      setAnswer(null)
+
+    const getNewQuestions = () => {
       const localCurrent = rand()
       setCurrent(localCurrent)
       const localWrong = rand([localCurrent])
-      setWrong1(rand([localWrong]))
-      setWrong2(rand([localCurrent, localWrong]))
+      setWrong1(localWrong)
+      const localWrong2 = rand([localCurrent, localWrong])
+      setWrong2(localWrong2)
+    }
+
+    // Set initial set of questions
+    useEffect(() => {
+      getNewQuestions()
+    },[])
+  
+    const finishAnswer = () => {
+      setAnswer(null)
+      getNewQuestions()
     }
   
     return (

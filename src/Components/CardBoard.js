@@ -5,12 +5,12 @@ import { shuffle } from '../helpers'
 const CardBoard = (props) => {
 
     const [selected, setSelected] = useState(null)
-    const { question, wrong1, wrong2, onSubmit} = props
+    const { question, wrong1, wrong2, onSubmit } = props
     const [questionArray, setQuestionArray] = useState([question, wrong1, wrong2])
 
     useEffect(() => {
-            setQuestionArray(shuffle([question, wrong1, wrong2]))
-        },[question, wrong1, wrong2, setQuestionArray])
+        setQuestionArray(shuffle([question, wrong1, wrong2]))
+    },[question, wrong1, wrong2, setQuestionArray])
 
     const selectedFunc = () => {
         onSubmit(questionArray[selected])
@@ -18,7 +18,7 @@ const CardBoard = (props) => {
     }
 
     const AnsBtn = ({ i }) => {
-        if(questionArray.length > i) {
+        if(questionArray && questionArray.length > i) {
             const style = 'choiceButton' + ((i == selected) ? ' selectChoice' : '')
             return <div className={style} onClick={() => setSelected(i)}>
             {questionArray[i].answer}
